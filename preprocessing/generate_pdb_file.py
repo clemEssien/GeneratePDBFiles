@@ -90,7 +90,7 @@ for pdb_id in pdb_ids:
             entry = request.html.find("table", first=True)
             data = entry.find('a', first=True);
             nr = (((data.attrs)['href']))
-            nr = nr.split('entry?db=pdb&nr=')[1].split('&q=' + pdb_id.lower())[0]
+            nr = nr.split('entry?db=pdb&nr=')[1].split('&q=' + pdb_id)[0]
             new_url = 'https://mrs.cmbi.umcn.nl/entry?db=pdb&nr=' + nr + '&q=' + pdb_id
             new_request = make_request(new_url)
             entry = new_request.html.find('#entrytext', first=True)
