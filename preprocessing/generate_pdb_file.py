@@ -84,7 +84,6 @@ for pdb_id in pdb_ids:
     try:
         url = 'https://mrs.cmbi.umcn.nl/search?db=pdb&q=' + pdb_id + '&count=3'
         request = make_request(url)
-        print(url)
         entry = request.html.find('#entrytext', first=True)
         if entry is None:
             entry = request.html.find("table", first=True)
@@ -92,6 +91,7 @@ for pdb_id in pdb_ids:
             nr = (((data.attrs)['href']))
             nr = nr.split('entry?db=pdb&nr=')[1].split('&q=' + pdb_id)[0]
             new_url = 'https://mrs.cmbi.umcn.nl/entry?db=pdb&nr=' + nr + '&q=' + pdb_id
+            print(new_url)
             new_request = make_request(new_url)
             entry = new_request.html.find('#entrytext', first=True)
             content = get_pdb_content(entry)
