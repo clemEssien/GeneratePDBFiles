@@ -1,4 +1,4 @@
-#requirement python 3.60 or higher
+# Only python 3.60 is supported for now
 
 # GeneratePDBFiles
 The protein ids are in the GeneratePDBFiles/data directory
